@@ -1,10 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+
+import currencyReducer from "./slices/currencySlice";
 
 
-const store = configureStore({
+
+export const store = configureStore({
     reducer: {
-
+        currency: currencyReducer,
     },
+    middleware: getDefaultMiddleware => [
+        ...getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
+    ],
 });
 
-export default store;
+export const pStore = persistStore(store);
