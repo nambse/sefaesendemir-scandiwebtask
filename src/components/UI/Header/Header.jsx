@@ -1,22 +1,22 @@
-import {Component} from "react";
+import { Component } from "react";
 import HeaderNavigation from "./HeaderNavigation";
-import styled from "styled-components"
-import {Link} from "react-router-dom";
-import {ReactComponent as Logo} from "../../../assets/icons/logo.svg";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../../assets/icons/logo.svg";
 import HeaderCurrencySwitcher from "./HeaderCurrencySwitcher";
 
 class Header extends Component {
-
-    render() {
-
-        return (
-            <HeaderContainer>
-                    <HeaderNavigation />
-                    <HeaderLogo><Logo /></HeaderLogo>
-                    <HeaderCurrencySwitcher />
-            </HeaderContainer>
-        )
-    }
+  render() {
+    return (
+      <HeaderContainer>
+        <HeaderNavigation />
+        <HeaderLogo to="/">
+          <Logo />
+        </HeaderLogo>
+        <HeaderCurrencySwitcher />
+      </HeaderContainer>
+    );
+  }
 }
 
 export default Header;
@@ -24,18 +24,17 @@ export default Header;
 // Styling
 
 const HeaderContainer = styled.header`
-    position: fixed;
-	width: 100%;
-	max-width: 1440px;
-	padding: 0 calc(101 / 1440 * 100vw);
-	margin-left: calc(101 / 1440 * -100vw);
-	height: 80px;
-	display: flex;
-	align-items: center;
-	background-color: white;
-	z-index: 111;
+  position: fixed;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 calc(101 / 1440 * 100vw);
+  margin-left: calc(101 / 1440 * -100vw);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  z-index: 111;
 `;
-
 
 const HeaderLogo = styled(Link)`
   position: absolute;
@@ -50,4 +49,4 @@ const HeaderLogo = styled(Link)`
   @media (max-width: 380px) {
     display: none;
   }
-`
+`;
