@@ -320,7 +320,7 @@ const ProductDescriptionText = styled.header`
   left: 0;
   font-weight: 400;
   font-size: 16px;
-  line-height: 159.96%;
+  line-height: 25.59px;
 
   @media (max-width: 1024px) {
     top: 591px;
