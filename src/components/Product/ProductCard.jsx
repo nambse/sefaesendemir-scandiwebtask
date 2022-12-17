@@ -67,6 +67,18 @@ class ProductCard extends Component {
     this.setState({ productVisible: true });
   };
 
+  navigateToProduct = (event, id) => {
+    if (
+      event.target.localName !== "li" &&
+      event.target.localName !== "button" &&
+      // It is circle and path because event target localName sends the name of the svg element.
+      event.target.localName !== "circle" &&
+      event.target.localName !== "path"
+    ) {
+      this.props.router.navigate(`/product/${id}`);
+    }
+  };
+
   render() {
     const {
       id,
@@ -93,9 +105,7 @@ class ProductCard extends Component {
 
     return (
       <ProductCardItem inStock={inStock} onMouseLeave={this.handleMouseLeave}>
-        <ProductCardLink
-          onClick={() => this.props.router.push(`/product/${id}`)}
-        >
+        <ProductCardLink onClick={(event) => this.navigateToProduct(event, id)}>
           {this.state.productVisible ? (
             <ProductCardImage src={gallery[0]} alt={name} />
           ) : null}

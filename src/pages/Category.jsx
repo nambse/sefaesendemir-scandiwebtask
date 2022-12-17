@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import getProducts from "../GraphQL/product";
+import { getProducts } from "../GraphQL/product";
 import ProductCard from "../components/Product/ProductCard";
 import withRouter from "../components/HOC/withRouter";
 import client from "../GraphQL/apolloClient";
