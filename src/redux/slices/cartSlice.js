@@ -1,6 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist/es/constants";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -110,6 +118,14 @@ const cartSlice = createSlice({
       });
     },
   },
+  //https://stackoverflow.com/questions/63761763/how-to-configure-redux-persist-with-redux-toolkit
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  ],
 });
 
 const cartPersistConfig = {
