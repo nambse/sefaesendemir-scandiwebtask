@@ -25,7 +25,6 @@ export class HeaderCurrencySwitcher extends Component {
   };
 
   currencyItemClick = (event) => {
-    console.log(event.target.firstChild.data);
     this.setState({ currency: event.target.firstChild.data });
     this.props.setCurrency(event.target.firstChild.data);
   };
@@ -36,7 +35,6 @@ export class HeaderCurrencySwitcher extends Component {
 
   render() {
     const { currencies, open, currency } = this.state;
-    console.log(this.props);
     return (
       <SwitcherContainer onClick={() => this.toggleSwitcher()}>
         <CurrencySymbol>

@@ -81,7 +81,6 @@ const cartSlice = createSlice({
     },
     handleCartQuantity(state, action) {
       const { id, currentAttributes, operator } = action.payload;
-      console.log(action.payload.currentAttributes);
       state.products.forEach((product) => {
         if (product.id === id) {
           if (

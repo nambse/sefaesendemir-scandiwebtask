@@ -52,7 +52,6 @@ class Product extends PureComponent {
     const amount = prices?.find(
       ({ currency }) => currency.symbol === currentCurrency
     );
-    console.log(this.props.id);
     return (
       <MiniCartProductContainer origin={origin}>
         <MiniCartProductContainerDescription>

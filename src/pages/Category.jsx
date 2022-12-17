@@ -37,9 +37,7 @@ class Category extends PureComponent {
   }
 
   render() {
-    console.log(this.props);
     const { products } = this.state;
-    console.log(products);
     return (
       <>
         <CategoryName>{this.categoryName()}</CategoryName>

@@ -39,7 +39,6 @@ class ProductCard extends Component {
         productVisible: false,
       });
     }
-    console.log("yaptım");
   };
 
   handleAttributeClick = (name, value) => {

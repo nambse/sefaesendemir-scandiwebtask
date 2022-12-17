@@ -10,12 +10,10 @@ class HeaderMiniCart extends Component {
 
   toggleDropdown() {
     this.setState((state) => ({ dropdown: !state.dropdown }));
-    console.log(this.props);
   }
 
   render() {
     const { currentCurrency, products } = this.props;
-    console.log(products);
     const { dropdown } = this.state;
 
     const totalAmount = products.reduce((total, product) => {
