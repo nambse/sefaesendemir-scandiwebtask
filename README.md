@@ -2,7 +2,7 @@
 
 ## Description
 
-In this project I have followed the given figma design and developed the desired design.
+In this project I have followed the given figma design and coded the desired design.
 
 I have used several dependencies in this project. Purpose of these dependencies are explained below.
 
