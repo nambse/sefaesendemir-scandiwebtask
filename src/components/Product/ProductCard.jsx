@@ -102,10 +102,29 @@ class ProductCard extends Component {
           {inStock ? (
             <ProductCardThumbnail>
               <ProductOrder>
-                {this.state.productVisible ? (
+                {this.state.productVisible && attributes.length > 0 ? (
                   <ProductAddToCartButton
                     inStock={inStock}
                     onClick={this.toggleProductAttributes}
+                  >
+                    <ProductAddToCartIcon />
+                  </ProductAddToCartButton>
+                ) : this.state.productVisible && !attributes.length > 0 ? (
+                  <ProductAddToCartButton
+                    inStock={inStock}
+                    onClick={() =>
+                      inStock &&
+                      this.props.addToCart({
+                        id,
+                        gallery,
+                        brand,
+                        name,
+                        prices,
+                        attributes,
+                        currentAttributes,
+                        currentProducts,
+                      })
+                    }
                   >
                     <ProductAddToCartIcon />
                   </ProductAddToCartButton>
@@ -175,7 +194,37 @@ const mapStateToProps = (state) => ({
   currentCurrency: state.currency.currentCurrency,
   products: state.cart.products,
 });
-export default connect(mapStateToProps, { addToCart })(withRouter(ProductCard));
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (
+      id,
+      gallery,
+      brand,
+      name,
+      prices,
+      attributes,
+      currentAttributes,
+      currentProducts
+    ) =>
+      dispatch(
+        addToCart(
+          id,
+          gallery,
+          brand,
+          name,
+          prices,
+          attributes,
+          currentAttributes,
+          currentProducts
+        )
+      ),
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ProductCard));
 
 //Styling
 

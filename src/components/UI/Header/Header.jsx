@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/icons/logo.svg";
 import HeaderCurrencySwitcher from "./HeaderCurrencySwitcher";
+import HeaderMiniCart from "./HeaderMiniCart";
 
 class Header extends Component {
   render() {
@@ -14,6 +15,7 @@ class Header extends Component {
           <Logo />
         </HeaderLogo>
         <HeaderCurrencySwitcher />
+        <HeaderMiniCart />
       </HeaderContainer>
     );
   }

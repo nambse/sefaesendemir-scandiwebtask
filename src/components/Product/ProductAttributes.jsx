@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { ReactComponent as Icon } from "../../assets/icons/close.svg";
 import styled from "styled-components";
 
 export class ProductAttributes extends Component {
@@ -96,7 +95,7 @@ const ProductAttributeItem = styled.li`
         Object.values(currentAttribute)[0] === value
     ) && "white"};
 
-  &: not(: last-child) {
+  &:not(:last-child) {
     margin-right: 12px;
   }
 `;
@@ -113,7 +112,7 @@ const ProductAttributeItemSwatch = styled.li`
         Object.values(currentAttribute)[0] === value
     ) && "1px solid var(--accent-color)"};
 
-  &: not(: last-child) {
+  &:not(:last-child) {
     margin-right: 12px;
   }
 
