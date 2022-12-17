@@ -23,7 +23,7 @@ class Product extends PureComponent {
     this.setState({ quantity: this.props.quantity });
   }
 
-  handleClickImage = (event) => {
+  handleImageClick = (event) => {
     const { GalleryIndex } = this.state;
     const { gallery } = this.props;
     event === "left"
@@ -65,12 +65,12 @@ class Product extends PureComponent {
           <ProductAttributes
             attributes={attributes}
             currentAttributes={currentAttributes}
-            handleClickAttribute={() => {}}
+            handleAttributeClick={() => {}}
             origin={origin}
           />
         </MiniCartProductContainerDescription>
         <MiniCartProductContainerCounter>
-          <MiniCartProductHandleButton
+          <MiniCartProductHandleQuantityButton
             onClick={() =>
               this.props.handleCartQuantity({
                 id,
@@ -81,9 +81,9 @@ class Product extends PureComponent {
             origin={origin}
           >
             +
-          </MiniCartProductHandleButton>
+          </MiniCartProductHandleQuantityButton>
           {this.state.quantity}
-          <MiniCartProductHandleButton
+          <MiniCartProductHandleQuantityButton
             onClick={() =>
               this.props.handleCartQuantity({
                 id,
@@ -94,17 +94,15 @@ class Product extends PureComponent {
             origin={origin}
           >
             &ndash;
-          </MiniCartProductHandleButton>
+          </MiniCartProductHandleQuantityButton>
         </MiniCartProductContainerCounter>
         <MiniCartProductBox>
           <MiniCartProductImage src={gallery[this.state.GalleryIndex]} />
           {origin === "page" && gallery.length > 1 && (
             <>
-              <MiniCartProductArrowLeft
-                onClick={() => this.handleClickImage("left")}
-              />
-              <MiniCartProductArrowRight
-                onClick={() => this.handleClickImage("right")}
+              <ProductArrowLeft onClick={() => this.handleImageClick("left")} />
+              <ProductArrowRight
+                onClick={() => this.handleImageClick("right")}
               />
             </>
           )}
@@ -142,7 +140,7 @@ const MiniCartProductContainerCounter = styled.div`
   align-items: center;
 `;
 
-const MiniCartProductHandleButton = styled.div`
+const MiniCartProductHandleQuantityButton = styled.div`
   font-weight: 500;
   line-height: ${(props) => (props.children === "+" ? "160%" : "135%")};
   text-align: center;
@@ -158,7 +156,7 @@ const MiniCartProductImage = styled.img`
   object-fit: contain;
 `;
 
-const MiniCartProductArrowLeft = styled(Svg)`
+const ProductArrowLeft = styled(Svg)`
   transform: rotate(90deg);
   position: absolute;
   padding: 6px;
@@ -169,9 +167,12 @@ const MiniCartProductArrowLeft = styled(Svg)`
   stroke: white;
   background-color: rgba(0, 0, 0, 0.73);
   cursor: pointer;
+  path {
+    stroke: white;
+  }
 `;
 
-const MiniCartProductArrowRight = styled(Svg)`
+const ProductArrowRight = styled(Svg)`
   transform: rotate(-90deg);
   position: absolute;
   padding: 6px;
@@ -179,9 +180,11 @@ const MiniCartProductArrowRight = styled(Svg)`
   height: 24px;
   bottom: 16px;
   right: 16px;
-  stroke: white;
   background-color: rgba(0, 0, 0, 0.73);
   cursor: pointer;
+  path {
+    stroke: white;
+  }
 `;
 
 const MiniCartProductContainer = styled.li`
@@ -267,7 +270,7 @@ const MiniCartProductContainer = styled.li`
     min-height: ${(props) => (props.origin === "page" ? "100px" : "190px")};
   }
 
-  ${MiniCartProductHandleButton} {
+  ${MiniCartProductHandleQuantityButton} {
     width: ${(props) => (props.origin === "page" ? "45px" : "24px")};
     height: ${(props) => (props.origin === "page" ? "45px" : "24px")};
     font-size: ${(props) => (props.origin === "page" ? "20px" : "15px")};

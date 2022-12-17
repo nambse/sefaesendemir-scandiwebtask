@@ -6,7 +6,7 @@ export class ProductAttributes extends Component {
     const {
       attributes,
       currentAttributes,
-      handleClickAttribute,
+      handleAttributeClick,
       origin,
       inStock,
       name,
@@ -37,7 +37,7 @@ export class ProductAttributes extends Component {
                       displayValue={displayValue}
                       currentAttributes={currentAttributes}
                       onClick={() =>
-                        inStock && handleClickAttribute(name, value)
+                        inStock && handleAttributeClick(name, value)
                       }
                     />
                   ) : (
@@ -47,7 +47,7 @@ export class ProductAttributes extends Component {
                       value={value}
                       currentAttributes={currentAttributes}
                       onClick={() =>
-                        inStock && handleClickAttribute(name, value)
+                        inStock && handleAttributeClick(name, value)
                       }
                     >
                       {value}

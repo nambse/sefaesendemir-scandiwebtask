@@ -40,7 +40,12 @@ class HeaderMiniCart extends Component {
             <MiniCartBackDrop dropdown={dropdown} />
             <MiniCartDropdown onClick={() => this.toggleDropdown()}>
               <MiniCartDropdownProducts>
-                <MiniCartWelcome>My Bag, {totalProducts} items</MiniCartWelcome>
+                <MiniCartWelcome>
+                  My Bag,
+                  <MiniCartTotalItems>
+                    {` ${totalProducts} items`}
+                  </MiniCartTotalItems>
+                </MiniCartWelcome>
                 <MiniCartProducts>
                   {products.map(
                     (
@@ -149,8 +154,17 @@ const MiniCartDropdownProducts = styled.div`
   margin-bottom: 32px;
 `;
 
-const MiniCartWelcome = styled.p`
-  font-weight: 700;
+const MiniCartWelcome = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 160%;
+  margin-bottom: 32px;
+`;
+
+const MiniCartTotalItems = styled.p`
+  font-weight: normal;
   font-size: 16px;
   line-height: 160%;
   margin-bottom: 32px;
@@ -165,6 +179,8 @@ const MiniCartProducts = styled.ul`
   list-style-type: none;
   overflow-y: auto;
   overflow-x: hidden;
+  //hide scrollbar on firefox.
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -174,7 +190,7 @@ const MiniCartTotal = styled.p`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;

@@ -42,7 +42,7 @@ class ProductCard extends Component {
     console.log("yaptım");
   };
 
-  handleClickAttribute = (name, value) => {
+  handleAttributeClick = (name, value) => {
     const currentAttributes = [...this.state.currentAttributes];
     currentAttributes?.some(
       (currentAttribute) => Object.keys(currentAttribute)[0] === name
@@ -151,7 +151,7 @@ class ProductCard extends Component {
                     price={currencyPrice}
                     attributes={attributes}
                     currentAttributes={currentAttributes}
-                    handleClickAttribute={this.handleClickAttribute}
+                    handleAttributeClick={this.handleAttributeClick}
                     origin={"page"}
                     inStock={inStock}
                   />
@@ -257,7 +257,8 @@ const ProductCardItem = styled.li`
   }
 
   &:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    opacity: unset;
   }
 `;
 
@@ -423,7 +424,8 @@ const ProductCardOutOfStock = styled.p`
 
   a:hover &,
   a:focus & {
-    opacity: 0.1;
+    opacity: 0.7;
+    color: #45474e;
   }
 `;
 

@@ -25,7 +25,7 @@ class ProductDetails extends Component {
     this.setState({ product: result.data.product });
   };
 
-  handleClickAttribute = (name, value) => {
+  handleAttributeClick = (name, value) => {
     const currentAttributes = [...this.state.currentAttributes];
     currentAttributes?.some(
       (currentAttribute) => Object.keys(currentAttribute)[0] === name
@@ -93,7 +93,7 @@ class ProductDetails extends Component {
           <ProductAttributes
             attributes={attributes}
             currentAttributes={currentAttributes}
-            handleClickAttribute={this.handleClickAttribute}
+            handleAttributeClick={this.handleAttributeClick}
             origin={"page"}
             inStock={inStock}
           />
@@ -173,6 +173,7 @@ const ProductGalleryList = styled.ul`
   display: block;
   list-style-type: none;
   overflow: auto;
+  scrollbar-width: none;
   ::-webkit-scrollbar {
     display: none;
   }
