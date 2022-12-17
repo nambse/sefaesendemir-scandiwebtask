@@ -26,7 +26,8 @@ I have used several dependencies in this project. Purpose of these dependencies 
 ##  Usage
 To work on the project, you need the backend server provided by the Scandiweb.
 
-To install the project, you can clone the repository and you can run the following command in the project directory.
-
-    yarn start
+To install the project, you can clone the repository, and you can run the following commands in the project directory.
+    
+    1- yarn
+    2- yarn start
 
