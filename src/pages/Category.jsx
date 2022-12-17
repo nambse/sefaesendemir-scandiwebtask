@@ -61,7 +61,7 @@ class Category extends PureComponent {
             )}
           </ProductList>
         ) : (
-          <h1>No product found</h1>
+          <h1>No product found. Please check your connection.</h1>
         )}
       </>
     );
